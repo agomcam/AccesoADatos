@@ -36,7 +36,7 @@ public class UD1_B2_T5_Gomez_Camarena_Antonio {
 
         escribirPedidos(arrayPedidos1, file);
         leerPedidos(file);
-
+        System.out.println("---------------------------------------------------------------------------------");
         annadePedidos(arrayPedidos2, file);
 
         leerPedidos(file);
@@ -108,7 +108,7 @@ public class UD1_B2_T5_Gomez_Camarena_Antonio {
         ObjectOutputStream oos = null;
         try {
             if (f.exists()) {
-                oos = new MiObjectOutputStream(new FileOutputStream(f,true));
+                oos = new MiObjectOutputStream(new FileOutputStream(f, true));
             } else {
                 oos = new ObjectOutputStream(new FileOutputStream(f));
             }
