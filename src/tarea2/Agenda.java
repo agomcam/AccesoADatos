@@ -1,6 +1,7 @@
 package tarea2;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Agenda implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -16,15 +17,8 @@ public class Agenda implements Serializable {
      * @param contacto - Array de contactos
      */
     public Agenda(Contacto[] contacto) {
-        this.contacto = new Contacto[5];
-        while (this.contacto.length <= contacto.length) {
-            this.contacto = new Contacto[this.contacto.length + 5];
-        }
-        for (int i = 0; i < contacto.length; i++) {
-            if (this.contacto[i] == null) {
-                this.contacto[i] = contacto[i];
-            }
-
+        for (Contacto contacto2 : contacto) {
+            annadeContacto(contacto2);
         }
     }
 
@@ -97,5 +91,10 @@ public class Agenda implements Serializable {
         for (Contacto contacto2 : contacto) {
             System.out.println(contacto2);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Agenda [contacto=" + Arrays.toString(contacto) + "]";
     }
 }

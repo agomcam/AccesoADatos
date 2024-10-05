@@ -30,7 +30,6 @@ public class UD1_B2_T6_Gomez_Camarena_Antonio {
 
         System.out.println("Inicializar la agenda");
         agendaContactos = recuperarAgenda(file);
-
         while (res != 4) {
             int contador = 0;
             // Contamos cuantos contactos tenemos en la agenda
@@ -109,15 +108,10 @@ public class UD1_B2_T6_Gomez_Camarena_Antonio {
      */
     private static void guardarAgenda(File f, Agenda a) {
         ObjectOutputStream oos = null;
-
+        System.out.println(a);
         try {
-            if (f.length() == 0) {
                 oos = new ObjectOutputStream(new FileOutputStream(f));
                 oos.writeObject(a);
-            } else {
-                oos = new MiObjectOutputStream(new FileOutputStream(f));
-                oos.writeObject(a);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -149,7 +143,7 @@ public class UD1_B2_T6_Gomez_Camarena_Antonio {
             agenda = (Agenda) ois.readObject();
 
         } catch (IOException e) {
-            System.out.println("Archivo leido correctamente");
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {

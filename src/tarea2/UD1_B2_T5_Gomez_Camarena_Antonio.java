@@ -107,7 +107,7 @@ public class UD1_B2_T5_Gomez_Camarena_Antonio {
     private static void annadePedidos(Pedido[] pedidos, File f) {
         ObjectOutputStream oos = null;
         try {
-            if (f.exists()) {
+            if (f.length() > 0) {
                 oos = new MiObjectOutputStream(new FileOutputStream(f, true));
             } else {
                 oos = new ObjectOutputStream(new FileOutputStream(f));
