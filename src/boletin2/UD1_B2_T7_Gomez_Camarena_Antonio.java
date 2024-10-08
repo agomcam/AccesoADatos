@@ -87,7 +87,7 @@ public class UD1_B2_T7_Gomez_Camarena_Antonio {
                     datos = sc.nextLine();
                     c.setTelefono(datos);
 
-                    System.out.println("Contacto elimiado: " + contContactos.remove(c));
+                    System.out.println("Contacto eliminado: " + contContactos.remove(c));
                     break;
                 case 4:
                     System.out.println("Saliendo del programa");

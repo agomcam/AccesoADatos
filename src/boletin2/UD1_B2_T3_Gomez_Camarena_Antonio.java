@@ -48,11 +48,11 @@ public class UD1_B2_T3_Gomez_Camarena_Antonio {
      */
     private static double[][] pedirDatosMatriz() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Dime cuantas filas quieres que tanga tu matriz: ");
+        System.out.println("Dime cuantas filas quieres que tenga tu matriz: ");
 
         int filas = sc.nextInt();
 
-        System.out.println("Dime cuantas columnas quieres que tanga tu matriz: ");
+        System.out.println("Dime cuantas columnas quieres que tenga tu matriz: ");
 
         int columnas = sc.nextInt();
         double matriz[][] = new double[filas][columnas];
