@@ -1,4 +1,4 @@
-package tarea2;
+package boletin2;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package tarea3;
+package boletin3;
 
 import java.io.File;
 import java.io.FileReader;

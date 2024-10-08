@@ -1,4 +1,4 @@
-package tarea1;
+package boletin1;
 
 import java.io.File;
 

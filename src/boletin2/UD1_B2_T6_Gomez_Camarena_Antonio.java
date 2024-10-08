@@ -1,4 +1,4 @@
-package tarea2;
+package boletin2;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -110,8 +110,8 @@ public class UD1_B2_T6_Gomez_Camarena_Antonio {
         ObjectOutputStream oos = null;
         System.out.println(a);
         try {
-                oos = new ObjectOutputStream(new FileOutputStream(f));
-                oos.writeObject(a);
+            oos = new ObjectOutputStream(new FileOutputStream(f));
+            oos.writeObject(a);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

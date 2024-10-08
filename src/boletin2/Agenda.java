@@ -1,4 +1,4 @@
-package tarea2;
+package boletin2;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -74,10 +74,12 @@ public class Agenda implements Serializable {
      */
     public boolean elimarContacto(Contacto contacto) {
 
-        for (Contacto cont : this.contacto) {
-            if (cont.equals(contacto)) {
+        for (int i = 0; i < this.contacto.length; i++) {
+            if (contacto.equals(this.contacto[i]) && this.contacto[i] != null) {
+
+                this.contacto[i] = null;
                 System.out.println("Contacto eliminado correctamente");
-                cont = null;
+                return true;
             }
         }
 

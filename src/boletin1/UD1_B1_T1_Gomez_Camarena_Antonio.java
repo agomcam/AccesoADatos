@@ -1,7 +1,7 @@
 /**
  * 
  */
-package tarea1;
+package boletin1;
 
 /**
  * 
