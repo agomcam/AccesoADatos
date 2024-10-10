@@ -17,6 +17,14 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
         copyTextFile(f2, f1, true); // Falla
     }
 
+    /**
+     * Funcion que comprueba que se pueda copiar un fichero correctamente en caso de
+     * que se pueda llamaremos a la funcion copyTextFile
+     * 
+     * @param in      - fichero a copiar
+     * @param out     - fichero a donde vamos a copiarlo
+     * @param bandera - para saber si podemos reemplazar el fichero
+     */
     public static void copyTextFile(File in, File out, boolean bandera) {
         if (!in.exists()) {
             System.out.println("Lo sieno pero el fichero no existe");
@@ -40,7 +48,7 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
         // En caso de que el comprobamos que donde queremos guardar es un directorio o
         // un fichero
         if (out.isDirectory()) {
-            File f = new File(out, "copia_" + in.getName());
+            File f = new File(out, in.getName());
             System.out.println(f);
             copyTextFile(in, f);
 
@@ -50,7 +58,7 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
         if (!out.exists()) {
             if (out.getName().split(".").length == 0) {
                 if (out.mkdir()) {
-                    File f = new File(out, "copia_" + in.getName());
+                    File f = new File(out, in.getName());
                     copyTextFile(in, f);
                     return;
                 }
@@ -62,6 +70,12 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
 
     }
 
+    /**
+     * Funcion que sirve para copiar un fichero en otro fichero
+     * 
+     * @param in  - fichero el cual queremos copiar
+     * @param out - fichero donde queremos copiarlo
+     */
     private static void copyTextFile(File in, File out) {
 
         FileReader fr = null;
