@@ -37,8 +37,7 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
             System.out.println("No se ha dado permiso para sobrescribir el archivo");
             return;
         }
-        // En caso de que el comprobamos que donde queremos guardar es un directorio o
-        // un fichero
+        // Comprobamos si es un directorio o un fichero
         if (out.isDirectory()) {
             File f = new File(out, "copia_" + in.getName());
             System.out.println(f);
@@ -57,7 +56,7 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
 
             }
         }
-        // En caso de que no se compla lo anterior aremos esto
+        // En caso de que no se cumpla lo anterior haremos esto
         copyTextFile(in, out);
 
     }
