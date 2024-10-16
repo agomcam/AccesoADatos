@@ -27,7 +27,7 @@ public class UD1_B3_T3_Gomez_Camarena_Antonio {
      */
     public static void copyTextFile(File in, File out, boolean bandera) {
         if (!in.exists()) {
-            System.out.println("Lo sieno pero el fichero no existe");
+            System.out.println("Lo siento pero el fichero no existe");
             return;
         }
         // Comprobamos de que el archivo a copiar no sea un directorios
