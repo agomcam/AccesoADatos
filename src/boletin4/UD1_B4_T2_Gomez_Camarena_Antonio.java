@@ -27,10 +27,10 @@ public class UD1_B4_T2_Gomez_Camarena_Antonio {
 
     /**
      * Funcion que obtiene todas las peliculas que hay en un xml y lo añade a un
-     * arrayList<Pelicula> que mas tarde devolvera
+     * ArrayList<Pelicula> que mas tarde devolvera
      * 
      * @param f - fichero xml donde se encuentran las peliculas
-     * @return - arrayList<Pelicula>
+     * @return - ArrayList<Pelicula>
      */
     public static ArrayList<Pelicula> cargarPeliculas(File f) {
         ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
