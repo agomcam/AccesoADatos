@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyectos</property>
-        <property name="hibernate.connection.username">adminProyectos</property>
-        <property name="hibernate.connection.password">adminProyectos1234</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyectos</property>
+		<property name="hibernate.connection.username">adminProyectos</property>
+		<property name="hibernate.connection.password">adminProyectos1234</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<!--Ejercicio 1 implementaciones -->
+		<mapping class="ejercicio1.entity.Departamento"/>
+		<mapping class="ejercicio1.entity.Empleado"/>
+		<mapping class="ejercicio1.entity.Trabaja"/>
+		<mapping class="ejercicio1.entity.Proyecto"/>
+
+		<!--Ejercicio 2 implementaciones -->
+		<mapping class="ejercicio2.entity.Provincia"/>
+		<mapping class="ejercicio2.entity.ZonaObservacion"/>
+		<mapping class="ejercicio2.entity.Asociacion"/>
+		<mapping class="ejercicio2.entity.Especie"/>
+		<mapping class="ejercicio2.entity.GrupoOrnitologico"/>
+		<mapping class="ejercicio2.entity.Observacion"/>
+		<mapping class="ejercicio2.entity.Observador"/>
 
 
-
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-
-        <mapping class="ejercicio1.entity.Departamento"/>
-        <mapping class="ejercicio1.entity.Empleado"/>
-        <mapping class="ejercicio1.entity.Trabaja"/>
-        <mapping class="ejercicio1.entity.Proyecto"/>
-
-
-
-
-    </session-factory>
+	</session-factory>
 </hibernate-configuration>
