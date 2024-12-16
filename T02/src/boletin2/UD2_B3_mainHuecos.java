@@ -1,9 +1,6 @@
 package boletin2;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import boletin2.ConectorMySQL;
 import boletin2.Departamento;
@@ -70,25 +67,91 @@ public class UD2_B3_mainHuecos {
     }
 
     private static Departamento UD2_B3_T1_getDepartamento_SQLInjection(String _dept_no) throws SQLException {
-        return UD2_B3_getDepartamento(_dept_no);// TODO
+        return UD2_B3_getDepartamento(_dept_no + " or 1=1 order by dept_no desc");
     }
 
-    private static String UD2_B3_T2_getDepartamentoPreparado(String _dept_no) {
+    private static String UD2_B3_T2_getDepartamentoPreparado(String _dept_no) throws SQLException {
         // TODO
+        //System.out.println("- getDepartamento(" + _dept_no + ") -");
+        String sqlSelect = "select * from departamento where dept_no = ? ;";
+        // System.out.println("Consulta: " + sqlSelect);
+        PreparedStatement ps = miConector.getConnect().prepareStatement(sqlSelect);
+        ps.setString(1, _dept_no);
+        ResultSet resultSet = ps.executeQuery();
+
+        if (resultSet.next()) {// Recorrer ResultSet
+            int dept_no = resultSet.getInt("dept_no");
+            String dnombre = resultSet.getString("dnombre");
+            String loc = resultSet.getString("loc");
+
+            resultSet.close();// Cerrar ResultSet
+            ps.close();// Cerrar Sentencia
+
+            return (new Departamento(dept_no, dnombre, loc)).toString();
+        }
+
+        resultSet.close();// Cerrar ResultSet
+        ps.close();// Cerrar Sentencia
+
         return null;
     }
 
     private static String UD2_B3_T3_getDepartamentoPreparado_SQLInjection(String _dept_no) {
-        return UD2_B3_T2_getDepartamentoPreparado(_dept_no);// TODO
+        try {
+            return UD2_B3_T2_getDepartamentoPreparado(_dept_no);// TODO
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static Empleado UD2_B3_T5_getEmpleadoPreparado(String _emp_no) {
-        // TODO
+        String sql = "select * from empleado where emp_no = ?;";
+        try {
+            PreparedStatement ps = miConector.getConnect().prepareStatement(sql);
+            ps.setString(1, _emp_no);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                int emp_no = rs.getInt(1);
+                String apellido = rs.getString(2);
+                String oficio = rs.getString(3);
+                int dir = rs.getInt(4);
+                Date fechaAlta = rs.getDate(5);
+                float salario = rs.getFloat(6);
+                float comision = rs.getFloat(7);
+                int depNo = rs.getInt(8);
+
+                return new Empleado(emp_no, apellido, oficio, dir, fechaAlta, salario, comision, depNo);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 
     private static void UD2_B3_T6_getEmpleadoPreparadoMetadatos(String _emp_no) {
-        // TODO
+        String sql = "select * from empleado where emp_no = ?;";
+        try {
+            PreparedStatement ps = miConector.getConnect().prepareStatement(sql);
+            ps.setString(1, _emp_no);
+            ResultSet rs = ps.executeQuery();
+            // Obtener los metadatos del ResultSet
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnCount = rsmd.getColumnCount();
+
+            System.out.println("Número de columnas: " + columnCount);
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.println("Columna " + i + ":");
+                System.out.println("  Nombre: " + rsmd.getColumnName(i));
+                System.out.println("  Tipo: " + rsmd.getColumnTypeName(i));
+                System.out.println("  Tamaño: " + rsmd.getColumnDisplaySize(i));
+                System.out.println("  Es nullable: " + rsmd.isNullable(i));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
